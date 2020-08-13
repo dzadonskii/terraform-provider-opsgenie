@@ -141,7 +141,7 @@ func ValidateConditions(conditions []Condition) error {
 			return errors.New("condition key is only valid for extra-properties field")
 		}
 		switch condition.Field {
-		case Message, Alias, Description, Source, Entity, Tags, Actions, Details, ExtraProperties, Recipients, Teams, Priority, ConversationSub, FromAddress, FromName, Subject:
+		case Message, Alias, Description, Source, Entity, Tags, Actions, Details, ExtraProperties, Recipients, Teams, Priority, ConversationSub, FromAddress, FromName, Subject, State:
 			break
 		default:
 			return errors.New("condition field should be one of message, alias, description, source, entity, tags, actions, details, extra-properties, recipients, teams, priority, conversationSubject, from_address, from_name or subject")
