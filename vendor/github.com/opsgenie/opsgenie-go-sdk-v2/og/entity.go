@@ -274,6 +274,7 @@ const (
 	FromAddress     ConditionFieldType = "from_address"
 	FromName        ConditionFieldType = "from_name"
 	Subject         ConditionFieldType = "subject"
+	State			ConditionFieldType = "state"
 
 	Matches                ConditionOperation = "matches"
 	Contains               ConditionOperation = "contains"
