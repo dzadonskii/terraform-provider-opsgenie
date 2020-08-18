@@ -144,14 +144,14 @@ func ValidateConditions(conditions []Condition) error {
 		case Message, Alias, Description, Source, Entity, EventType, Tags, Actions, Details, ExtraProperties, Recipients, Teams, Priority, ConversationSub, FromAddress, FromName, Subject, State:
 			break
 		default:
-			return errors.New("condition field should be one of message, alias, description, source, entity, eventType, tags, actions, details, extra-properties, recipients, teams, priority, conversationSubject, from_address, from_name or subject")
+			return errors.New("condition field should be one of message, alias, description, source, entity, eventType, tags, actions, details, extra-properties, recipients, teams, priority, conversationSubject, from_address, from_name, state or subject")
 		}
 		switch condition.Field {
 		case Actions, Tags, Recipients:
 			if condition.Operation != Contains && condition.Operation != IsEmpty && condition.Operation != Matches {
 				return errors.New(string(condition.Operation) + " is not valid operation for " + string(condition.Field))
 			}
-		case Message, Alias, Description, Source, Entity, Teams:
+		case Message, Alias, Description, Source, Entity, Teams, State:
 			if condition.Operation != Contains && condition.Operation != IsEmpty && condition.Operation != Matches &&
 				condition.Operation != Equals && condition.Operation != StartsWith && condition.Operation != EndsWith &&
 				condition.Operation != EqualsIgnoreWhitespcae {
